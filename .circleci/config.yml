@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: echo "Hello Ruby"
       - run: mkdir -p my_workspace
-      - run: echo "Saving Something" > my_workspace/echo-output
+      - run: echo "Trying out workspaces" > my_workspace/echo-output
       - persist_to_workspace:
             root: my_workspace
             paths:
