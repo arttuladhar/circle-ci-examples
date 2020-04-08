@@ -7,6 +7,12 @@ jobs:
     steps:
       - checkout
       - run: echo "Hello Ruby"
+      - run: mkdir -p my_workspace
+      - run: echo "Saving Something" > my_workspace/echo-output
+      - persist_to_workspace:
+            root: my_workspace
+            paths:
+                - echo-output
       - run: sleep 25
   two:
     docker:
@@ -14,7 +20,16 @@ jobs:
     steps:
       - checkout
       - run: echo "A more familiar Hi"
+      - attach_workspace:
+        at: my_workspace
+      - run: |
+          if [[ $(cat my_workspace/echo-output) == "Trying out workspaces" ]]; then
+            echo "It worked!";
+          else
+            echo "Nope!"; exit 1
+          fi
       - run: sleep 15
+    
 
 workflows:
   version: 2
