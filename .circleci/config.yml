@@ -5,7 +5,8 @@ orbs:
 test-circle-ci-filter: &test-circle-ci-filter
   branches:
     only: /test-circle-ci/
-  tags: /.*/
+  tags:
+    ignore: /.*/
 
 jobs:
   hello:
