@@ -26,8 +26,7 @@ workflows:
   hello-circle:  
     jobs:
       - hello:
-        filters: *test-circle-ci-filter
-    
+        filters: *test-circle-ci-filter    
       - sleep:
         filters: *test-circle-ci-filter
           requires:
