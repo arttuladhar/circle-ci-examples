@@ -30,6 +30,6 @@ workflows:
         filters: *test-circle-ci-filter
 
       - sleep:
-        requires:
-          - hello
+          requires:
+            - hello
         filters: *test-circle-ci-filter
