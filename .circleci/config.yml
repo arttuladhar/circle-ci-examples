@@ -2,7 +2,22 @@ version: 2.1
 orbs:
   welcome: circleci/welcome-orb@0.4.1
 
+jobs:
+  hello:
+    docker:
+      - image: circleci/welcome-config-image:0.2
+    steps:
+    - run: |
+      echo "Hello User"
+  sleep:
+    steps:
+    - run: sleep 5
+
 workflows:
-  welcome:
+  say_hello:  
     jobs:
-      - welcome/run
+      - hello:
+        filters:
+          branches:
+            only:
+              - test-circle-ci
