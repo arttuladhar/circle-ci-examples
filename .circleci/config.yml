@@ -15,10 +15,11 @@ jobs:
     - run: sleep 5
 
 workflows:
-  say_hello:  
+  Hello_Circle:  
+    filters:
+    branches:
+      only:
+        - test-circle-ci
     jobs:
-      - hello:
-        filters:
-          branches:
-            only:
-              - test-circle-ci
+      - hello
+      - sleep
