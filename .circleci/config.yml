@@ -13,6 +13,7 @@ jobs:
       - image: circleci/welcome-config-image:0.2
     steps:
     - run: echo "Hello User"
+
   sleep:
     docker:
       - image: circleci/welcome-config-image:0.2
@@ -24,8 +25,8 @@ workflows:
 
   hello-circle:  
     jobs:
-      - hello
+      - hello:
           filters: *test-circle-ci-filter
     
-      - sleep
+      - sleep:
           filters: *test-circle-ci-filter
