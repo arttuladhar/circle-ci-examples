@@ -7,8 +7,7 @@ jobs:
     docker:
       - image: circleci/welcome-config-image:0.2
     steps:
-    - run: |
-      echo "Hello User"
+    - run: echo "Hello User"
   sleep:
     steps:
     - run: sleep 5
