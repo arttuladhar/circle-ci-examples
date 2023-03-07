@@ -2,6 +2,11 @@ version: 2.1
 orbs:
   welcome: circleci/welcome-orb@0.4.1
 
+test-circle-ci-filter: &test-circle-ci-filter
+  branches:
+    only: /test-circle-ci/
+  tags: /.*/
+
 jobs:
   hello:
     docker:
@@ -15,11 +20,12 @@ jobs:
     - run: sleep 5
 
 workflows:
-  Hello_Circle:  
-    filters:
-    branches:
-      only:
-        - test-circle-ci
+  version: 2
+
+  hello-circle:  
     jobs:
       - hello
+        filters: *test-circle-ci-filter
+    
       - sleep
+        filters: *test-circle-ci-filter
