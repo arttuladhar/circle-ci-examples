@@ -30,3 +30,5 @@ workflows:
     
       - sleep:
         filters: *test-circle-ci-filter
+        requires:
+          - hello
